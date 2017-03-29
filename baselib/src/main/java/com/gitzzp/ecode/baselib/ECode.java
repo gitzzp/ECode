@@ -1,6 +1,7 @@
 package com.gitzzp.ecode.baselib;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.gitzzp.ecode.baselib.utils.PathUtil;
 
@@ -27,5 +28,9 @@ public class ECode {
 
     public static void setDebug(boolean debug) {
         isDebug = debug;
+    }
+
+    public static Context getContext(){
+        return application;
     }
 }

@@ -9,11 +9,6 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 
-/**
- * @author Daimon
- * @version 4.0
- * @since 3/26/2012
- */
 
 public final class IOUtil {
 

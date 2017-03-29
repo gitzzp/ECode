@@ -1,6 +1,5 @@
 package com.gitzzp.ecode.baselib.utils;
 
-import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;

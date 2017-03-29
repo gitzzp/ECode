@@ -54,9 +54,6 @@ import java.util.regex.Pattern;
 /**
  * 日期和时间的格式化工具（支持I18N）
  * 
- * @author Daimon
- * @version final
- * @since 6/6/2014
  */
 
 public final class CalendarFormat {
