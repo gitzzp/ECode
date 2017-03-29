@@ -93,7 +93,7 @@ public final class CalendarFormat {
 
     /**
      * 日期时间格式化对象<br>
-     * Daimon:ThreadLocal
+     * ThreadLocal
      */
 
     private static final ThreadLocal<SimpleDateFormat> dateTimeFormat =
