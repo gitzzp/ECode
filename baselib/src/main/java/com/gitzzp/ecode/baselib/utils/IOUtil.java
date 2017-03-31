@@ -9,7 +9,9 @@ import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
 
-
+/**
+ * IO流的基本操作
+ */
 public final class IOUtil {
 
     /**

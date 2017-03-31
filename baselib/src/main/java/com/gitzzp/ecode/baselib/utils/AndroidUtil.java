@@ -36,28 +36,29 @@ import dalvik.system.DexClassLoader;
 /**
  * Android系统工具类
  *
- * {@link #setFullScreenMode(Activity,boolean)} 设置全屏模式
- * {@link #setLandscapeMode(Activity)} 设置横屏模式
- * {@link #setKeepScreenOn(Activity)} 设置屏幕常亮
- * {@link #setClearKeepScreenOn(Activity)} 清除屏幕常亮
- * {@link #setBackWindowBlur(Activity)} 设置背景模糊 例如弹出dialog的时候 虚化后边activity的背景
- * {@link #getWindowBackground(Context)} 获取当前窗口的背景颜色
- * {@link #getResolution(Activity)} 获取DisplayMetrics对象
- * {@link #getVersion()} 获取手机的版本号 返回类型为int
- * {@link #getAllocatedMemory(Context)} 返回应用可分配的内存 MB
- * {@link #atForeGround(Context)} 判断当前应用是否在前台运行
- * {@link #isAppRunning(Context)}isAppRunning 判断本应用程序进程是否还在运行（或被系统杀死）
- * {@link #ShowHomeScreen(Context)}ShowHomeScreen 模拟home键 显示系统桌面
- * {@link #startApp(Context, String)}startApp 根据包名启动已安装APK
- * {@link #getUninstalledAPKResources(Context, String)}getUninstalledAPKResources 获取未安装APK包的资源 返回的是apk安装包的路径
- * {@link #loadUninstalledAPKClass(String, String, String)}loadUninstalledAPKClass 解压未安装的apk文件
- * {@link #getAllApps(Context, boolean)}getAllApps 获取当前手机所有的应用 包括未安装的 可以选择是否扫描系统预装app
- * {@link #isSystemApplication(Context)}isSystemApplication 判断当前应用是否为系统应用
- * {@link #getSignInfo(Context)}getSignInfo 获取当前应用的签名
- * {@link #showUninstallAPKSignatures(String)}showUninstallAPKSignatures 根据安装包的路径来获取安装包的签名信息 多用于升级时的签名信息比对
- * {@link #getServiceIBinder(String)}getServiceIBinder 通过name获得系统隐藏服务的ibinder对象
- * {@link #getVersionCode(Context)}getVersionCode 获取版本号
- * {@link #getVersionName(Context)}getVersionName 获取应用版本名称
+ * {@link #setFullScreenMode(Activity,boolean)}               设置全屏模式
+ * {@link #setLandscapeMode(Activity)}                        设置横屏模式
+ * {@link #setKeepScreenOn(Activity)}                         设置屏幕常亮
+ * {@link #setClearKeepScreenOn(Activity)}                    清除屏幕常亮
+ * {@link #setBackWindowBlur(Activity)}                       设置背景模糊 例如弹出dialog的时候 虚化后边activity的背景
+ * {@link #getWindowBackground(Context)}                      获取当前窗口的背景颜色
+ * {@link #getResolution(Activity)}                           获取DisplayMetrics对象
+ * {@link #getVersion()}                                      获取手机的版本号 返回类型为int
+ * {@link #getAllocatedMemory(Context)}                       返回应用可分配的内存 MB
+ * {@link #isAppForeGround(Context)}                          判断当前应用是否在前台运行
+ * {@link #isAppRunning(Context)}                             判断本应用程序进程是否还在运行（或被系统杀死）
+ * {@link #ShowHomeScreen(Context)}                           模拟home键 显示系统桌面
+ * {@link #startApp(Context, String)}                         根据包名启动已安装APK
+ * {@link #getUninstalledAPKResources(Context, String)}       获取未安装APK包的资源 返回的是apk安装包的路径
+ * {@link #loadUninstalledAPKClass(String, String, String)}   解压未安装的apk文件
+ * {@link #getAllApps(Context, boolean)}                      获取当前手机所有的应用 包括未安装的 可以选择是否扫描系统预装app
+ * {@link #isSystemApplication(Context)}                      判断当前应用是否为系统应用
+ * {@link #getSignInfo(Context)}                              获取当前应用的签名
+ * {@link #showUninstallAPKSignatures(String)}                根据安装包的路径来获取安装包的签名信息 多用于升级时的签名信息比对
+ * {@link #getServiceIBinder(String)}                         通过name获得系统隐藏服务的ibinder对象
+ * {@link #getVersionCode(Context)}                           获取版本号
+ * {@link #getVersionName(Context)}                           获取应用版本名称
+ * {@link #shareToOtherApp(Context, String, String, String)}  调用系统分享
  *
  */
 
@@ -179,7 +180,7 @@ public final class AndroidUtil {
      * 需要声明权限<uses-permission android:name="android.permission.GET_TASKS" />
      */
 
-    public static boolean atForeGround(Context context) {
+    public static boolean isAppForeGround(Context context) {
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<RunningTaskInfo> list = am.getRunningTasks(1);
         if (list != null && !list.isEmpty())
@@ -447,4 +448,17 @@ public final class AndroidUtil {
 
         return null;
     }
+
+    /**
+     * 调用系统分享
+     */
+    public static void shareToOtherApp(Context context,String title,String content, String dialogTitle ) {
+        Intent intentItem = new Intent(Intent.ACTION_SEND);
+        intentItem.setType("text/plain");
+        intentItem.putExtra(Intent.EXTRA_SUBJECT, title);
+        intentItem.putExtra(Intent.EXTRA_TEXT, content);
+        intentItem.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(Intent.createChooser(intentItem, dialogTitle));
+    }
+
 }

@@ -22,7 +22,7 @@ import static android.content.ContentValues.TAG;
 /**
  * 创建人：gitzzp
  * 创建日期:17/3/29 12:54
- * 类描述:
+ * 类描述: 文件压缩/解压 图片本地缓存的保存与获取
  */
 public class FileUtil {
 

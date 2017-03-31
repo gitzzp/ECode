@@ -46,4 +46,8 @@ public class BaseActivity extends FragmentActivity implements NetWorkUtil.Networ
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    public void finishThis(){
+        AppManager.finishActivity(this);
+    }
 }

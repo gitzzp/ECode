@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * 创建人：gitzzp
  * 创建日期:17/2/28 12:10
- * 类描述:
+ * 类描述:RecycleView Adapter基类 泛型V是要绑定的数据类型
  */
 public abstract class BaseRecycleAdapter<V> extends RecyclerView.Adapter<BaseViewHolder<V>> {
 
@@ -35,7 +35,7 @@ public abstract class BaseRecycleAdapter<V> extends RecyclerView.Adapter<BaseVie
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
-        //BaseViewHolder是我抽象出来的RecyclerView.ViewHolder的基类，下面会有详细讲解
+        //BaseViewHolder是我抽象出来的RecyclerView.ViewHolder的基类
         holder.setData(list.get(position), position, onItemClickListener);
     }
 

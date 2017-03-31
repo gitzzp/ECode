@@ -1,8 +1,10 @@
 package com.gitzzp.ecode.baselib.network;
 
+import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -14,6 +16,10 @@ import java.util.ArrayList;
 
 /**
  * Created by gitzzp on 2015/12/17.
+ * 网络状态监听
+ * 需要权限
+ * <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+ * <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
  */
 public class NetWorkUtil extends BroadcastReceiver {
 
@@ -25,6 +31,28 @@ public class NetWorkUtil extends BroadcastReceiver {
 
     private static ArrayList<NetworkCallback> list = new ArrayList<>();
     private NetWorkState netWorkState;
+
+    private static class NetWorkUtilHolder{
+         private static final NetWorkUtil NET_WORK_UTIL = new NetWorkUtil();
+    }
+
+    private static NetWorkUtil getInstance(){
+        return NetWorkUtilHolder.NET_WORK_UTIL;
+    }
+
+    public static void initNetWorkUtil(Application application){
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        intentFilter.addAction("android.net.wifi.WIFI_STATE_CHANGED");
+        intentFilter.addAction("android.net.wifi.STATE_CHANGE");
+        application.registerReceiver(getInstance(),intentFilter);
+    }
+
+    public static void destoryNetWorkUtil(Application application){
+        application.unregisterReceiver(getInstance());
+    }
+
+    private NetWorkUtil(){ }
 
     /**
      * 判断网络是否连接

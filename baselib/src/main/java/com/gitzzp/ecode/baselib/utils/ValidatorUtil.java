@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * 
  */
 
-public class MyValidator {
+public class ValidatorUtil {
 
     /** 不为空 */
     public static final Pattern VALID

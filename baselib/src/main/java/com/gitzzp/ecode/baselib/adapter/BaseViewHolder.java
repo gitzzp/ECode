@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 
-/**
- * ViewHolder基类
- *
- * Created by gitzzp on 16-5-27.
+ /**
+ * 创建人：gitzzp
+ * 创建日期:17/2/28 12:10
+ * 类描述:RecycleView ViewHolder基类
  */
 public abstract class BaseViewHolder<V> extends RecyclerView.ViewHolder {
 

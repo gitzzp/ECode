@@ -9,11 +9,11 @@ import java.lang.reflect.Modifier;
  * 
  */
 
-public final class ReflectObject {
+public final class ReflectObjectUtil {
 
     private final Object obj;
 
-    public ReflectObject(Object obj) {
+    public ReflectObjectUtil(Object obj) {
         if ((this.obj = obj) == null)
         {
             throw new NullPointerException();
