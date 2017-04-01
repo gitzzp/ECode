@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 
-import com.gitzzp.ecode.baselib.network.NetWorkUtil;
+import com.gitzzp.ecode.baselib.receiver.NetWorkUtil;
 
 /**
  * 创建人：gitzzp

@@ -3,7 +3,7 @@ package com.gitzzp.ecode.baselib;
 import android.app.Application;
 import android.content.Context;
 
-import com.gitzzp.ecode.baselib.network.NetWorkUtil;
+import com.gitzzp.ecode.baselib.receiver.NetWorkUtil;
 import com.gitzzp.ecode.baselib.utils.PathUtil;
 
 

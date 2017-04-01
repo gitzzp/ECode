@@ -24,7 +24,10 @@ provide some useful and simple tools
     
 3. mvpbase包：简单的mvp模式的封装
 
-4. network包：网络状态监听管理
+4. receiver包：
+    * NetWorkUtil: 网络状态监听管理
+    * PhoneReceiver: 来电监听
+    * ScreenReceiver: 锁屏解锁监听
 
 5. utils包：
     * AndroidUtil:

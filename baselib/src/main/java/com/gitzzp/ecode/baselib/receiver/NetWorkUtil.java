@@ -1,4 +1,4 @@
-package com.gitzzp.ecode.baselib.network;
+package com.gitzzp.ecode.baselib.receiver;
 
 import android.app.Application;
 import android.content.BroadcastReceiver;
