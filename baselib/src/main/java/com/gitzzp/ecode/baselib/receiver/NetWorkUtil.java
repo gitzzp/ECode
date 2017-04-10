@@ -76,7 +76,12 @@ public class NetWorkUtil extends BroadcastReceiver {
             ConnectivityManager cm = (ConnectivityManager)
                     ECode.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             wifiState = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState();
-            mobileState = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
+            //部分平板不能插卡 获取会为空
+            if(cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)==null){
+                mobileState = null;
+            }else {
+                mobileState = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
+            }
             if (wifiState != null && mobileState != null
                     && NetworkInfo.State.CONNECTED != wifiState
                     && NetworkInfo.State.CONNECTED == mobileState) {
