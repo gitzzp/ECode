@@ -221,6 +221,27 @@ public final class AndroidUtil {
     }
 
     /**
+     * 判断本应用程序进程是否还在运行（或被系统杀死）<br>
+     *     使用task信息来判断 因亲测上边一个方法在部分手机中有bug 不能准确检测到应用真是状态
+     */
+
+    public static boolean isAppRunningWithTask(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(100);
+        if (list != null && !list.isEmpty())
+        {
+            for (ActivityManager.RunningTaskInfo taskInfo : list)
+            {
+                if (taskInfo.topActivity.getPackageName().equals(context.getPackageName())&&taskInfo.baseActivity.getPackageName().equals("com.jiulin.song")){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * 模拟home键 显示桌面屏幕
      */
 

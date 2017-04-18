@@ -13,7 +13,7 @@ import com.gitzzp.ecode.baselib.utils.PathUtil;
  * 类描述:
  */
 public class ECode {
-    private static boolean isDebug;
+    private static boolean isDebug = true;
     private static Application application;
 
     /**

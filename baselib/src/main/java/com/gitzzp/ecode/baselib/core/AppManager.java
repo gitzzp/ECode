@@ -48,12 +48,14 @@ public class AppManager {
      * 结束指定的Activity
      */
     public static void finishActivity(Activity activity) {
-        if (activity != null) {
-            for(Activity activity1:activityStack){
-                if(activity.equals(activity1)){
-                    activityStack.remove(activity);
-                    if(!activity.isFinishing()) {
-                        activity.finish();
+        synchronized (AppManager.class) {
+            if (activity != null) {
+                for (Activity activity1 : activityStack) {
+                    if (activity.equals(activity1)) {
+                        activityStack.remove(activity);
+                        if (!activity.isFinishing()) {
+                            activity.finish();
+                        }
                     }
                 }
             }
