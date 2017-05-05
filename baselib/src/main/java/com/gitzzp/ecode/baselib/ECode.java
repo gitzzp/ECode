@@ -38,6 +38,7 @@ public class ECode {
     }
 
     public static Context getContext(){
+        if(application == null) throw new RuntimeException("application context is null,you must be init first");
         return application;
     }
 }

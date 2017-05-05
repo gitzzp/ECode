@@ -2,14 +2,14 @@ package com.gitzzp.ecode.baselib.mvpbase;
 
 import android.os.Bundle;
 
-import com.gitzzp.ecode.baselib.core.BaseActivity;
+import com.gitzzp.ecode.baselib.core.CoreActivity;
 
 /**
  * 创建人：gitzzp
  * 创建日期:16/12/19 18:11
  * 类描述: 两个泛型参数 第一个是view接口类型(子类中自行指定) 第二个是presenter具体类型
  */
-public abstract class MVPBaseActivity<V,T extends MVPBasePresenter<V>> extends BaseActivity {
+public abstract class MVPCoreActivity<V,T extends MVPBasePresenter<V>> extends CoreActivity {
 
     protected T mPresenter;
 

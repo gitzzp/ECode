@@ -256,6 +256,62 @@ public class FileUtil {
     }
 
     /**
+     * 获取文件夹大小
+     * @param file File实例
+     * @return long
+     */
+    public static long getFolderSize(java.io.File file){
+
+        long size = 0;
+        try {
+            java.io.File[] fileList = file.listFiles();
+            for (int i = 0; i < fileList.length; i++)
+            {
+                if (fileList[i].isDirectory())
+                {
+                    size = size + getFolderSize(fileList[i]);
+
+                }else{
+                    size = size + fileList[i].length();
+
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return size/1048576;
+//        return size;
+    }
+
+    /**
+     * 获取文件夹下文件个数
+     * @param string
+     * @return
+     */
+    public static int getFiles(String string) {
+        return getFiles(new File(string));
+    }
+
+    public static int getFiles(File file) {
+        int i = 0;
+        File[] files = file.listFiles();
+        for (int j = 0; j < files.length; j++) {
+            String name = files[j].getName();
+            if (files[j].isDirectory()) {
+                String dirPath = files[j].toString().toLowerCase();
+                System.out.println(dirPath);
+                i += getFiles(dirPath + "/");
+            } else {
+                System.out.println("FileName===" + files[j].getName());
+                i++;
+            }
+        }
+
+        return i;
+    }
+
+    /**
      * 创建文件以便写入
      */
 

@@ -13,7 +13,7 @@ import com.gitzzp.ecode.baselib.receiver.NetWorkUtil;
  * 创建日期:17/3/23 12:15
  * 类描述:
  */
-public class BaseActivity extends FragmentActivity implements NetWorkUtil.NetworkCallback {
+public class CoreActivity extends FragmentActivity implements NetWorkUtil.NetworkCallback {
 
     protected Activity mContext;
     NetWorkUtil.NetWorkState netWorkState = NetWorkUtil.NetWorkState.NONE;
