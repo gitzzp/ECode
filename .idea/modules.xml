@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ECode.iml" filepath="$PROJECT_DIR$/ECode.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselib/baselib.iml" filepath="$PROJECT_DIR$/baselib/baselib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fulllib/fulllib.iml" filepath="$PROJECT_DIR$/fulllib/fulllib.iml" />
     </modules>
   </component>
 </project>
